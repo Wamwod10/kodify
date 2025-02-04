@@ -1,0 +1,221 @@
+.nav {
+    width: 100%;
+    height: fit-content;
+    background: #f5f5f5;
+    box-shadow: 0 0 10px 1px #63636340;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &__box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+    }
+
+    &__search {
+        font-size: 28px;
+        color: rgb(42, 42, 42);
+        transition: 0.2s;
+        position: relative;
+
+        &:hover {
+            color: #4B9BF0;
+        }
+    }
+
+    &__search-input {
+        border: 2px solid #828282;
+        outline: none;
+        width: 250px;
+        padding: 10px;
+        border-radius: 10px;
+        z-index: 99;
+        cursor: pointer !important;
+
+        &::placeholder {
+            color: #828282;
+        }
+    }
+
+    &__form {
+        position: absolute;
+        opacity: 0;
+        margin-top: 0px;
+        transition: 0.2s;
+        left: 21%;
+        z-index: -1;
+        cursor: none;
+
+        &.active {
+            opacity: 1;
+            margin-top: 40px;
+            // margin-top: 80px;
+            cursor: pointer;
+        }
+    }
+
+    &__form-search {
+        position: absolute;
+        right: 0px;
+        top: 1px;
+        font-size: 19px;
+        color: aliceblue;
+        padding: 9px 8px 6px 8px;
+        background: #929292;
+        border-radius: 0px 10px 10px 0;
+        z-index: 99;
+    }
+
+    &__form-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__link-first {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        font-size: 18px;
+        color: #1c1c1c;
+        font-weight: 500;
+        transition: 0.3s;
+
+        &:hover {
+            color: #4B9BF0;
+        }
+
+        &:hover .nav__link-icon {
+            transform: rotate(180deg);
+            color: #4B9BF0;
+            // margin-top: 3px;
+        }
+    }
+
+    &__link-icon {
+        transition: 0.3s;
+        margin-top: 0px;
+    }
+
+    &__link {
+        font-size: 18px;
+        color: #1c1c1c;
+        font-weight: 500;
+        position: relative;
+        transition: 0.3s;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #1c1c1c;
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        &:hover {
+            color: #4B9BF0;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            bottom: -15px;
+        }
+    }
+
+    &__lang-box {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        width: 30px;
+    }
+
+    &__login-img {
+        font-size: 27px;
+        color: #1c1c1c;
+    }
+
+    &__login-box {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        margin-top: 3px;
+    }
+
+    &__link-first {
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        font-size: 18px;
+        color: #1c1c1c;
+        font-weight: 500;
+        transition: 0.3s;
+
+        &.active {
+            color: #4B9BF0;
+        }
+
+        &.active .nav__link-icon {
+            transform: rotate(180deg);
+            color: #4B9BF0;
+        }
+    }
+    
+    // &__link-first:hover ~ &__box-list {
+    //     margin-top: 45px;
+    // }
+
+    &__link-icon {
+        transition: 0.3s;
+        margin-top: 0px;
+    }
+
+    &__box-list {
+        display: flex;
+        flex-direction: column-reverse;
+        position: absolute;
+        margin-top: -10%;
+        right: 29%;
+        row-gap: 10px;
+        background: transparent;
+        box-shadow: 0 0 10px 5px #82828218;
+        padding: 17px 10px;
+        border-radius: 10px;
+        transition: all 0.4s ease-in-out;
+        z-index: -1;
+        
+        &.activetop {
+            margin-top: 45px;
+        }
+    }
+    
+    &__box-link {
+        color: #1c1c1c;
+        font-weight: 500;
+        transition: 0.2s;
+        
+        &:hover {
+            color: #4B9BF0;
+        }
+    }
+    
+    &__lang-txt {
+        color: #1c1c1c;
+    }
+    
+    &__login-txt {
+        color: #1c1c1c;
+        margin-top: -3px;
+    }
+}
