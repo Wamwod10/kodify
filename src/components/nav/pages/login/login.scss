@@ -35,6 +35,12 @@
         flex-direction: column;
         justify-content: center;
         position: relative;
+        
+        & .nav__logo-link {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
     }
 
     &__box-title {
@@ -70,7 +76,7 @@
     .group {
         position: relative;
         // margin-bottom: 20px;
-        margin-top: 35px;
+        margin-top: 25px;
     }
 
     input {
@@ -190,6 +196,8 @@
         border-radius: 30px;
         position: relative;
         z-index: 99;
+        background: transparent;
+        cursor: pointer;
         transition: 0.3s;
 
         &::before {
@@ -232,22 +240,24 @@
         margin-top: 20px;
     }
 
-    &__sex-link {
+    &__sec-link {
         color: #ffffff;
-        border: 2px solid #dbdbdb;
+        border: 2px solid #ffffff;
+        cursor: pointer;
         font-weight: 500;
         padding: 8px 50px;
         border-radius: 30px;
         position: relative;
         z-index: 99;
-        transition: 0.2s;
+        transition: 0.3s;
+        background: transparent;
 
         &::before {
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
-            background: #eeeeee;
+            background: #ffffff;
             transform: scale(0);
             z-index: -1;
             left: 0;
@@ -262,13 +272,20 @@
 
         &:hover {
             color: #4B9BF0;
-            border: 2px solid #eeeeee;
+            border: 2px solid #ffffff;
         }
     }
     
-    &__logo-link {
-        position: absolute;
-        left: 20px;
-        top: 20px;
+    &__text-top {
+        margin-top: -10px;
+    }
+
+    &__toggle-text {
+        margin-top: 20px;
+
+        span {
+            color: #4B9BF0;
+            cursor: pointer;
+        }
     }
 }
