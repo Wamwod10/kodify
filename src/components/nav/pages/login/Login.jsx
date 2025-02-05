@@ -3,16 +3,21 @@ import "../login/login.scss";
 
 const Login = () => {
     const [inputActive, setInputActive] = useState(false);
-    const inputRef = useRef(null); 
+    const [isRegister, setIsRegister] = useState(false);
+    const inputRef = useRef(null);
 
     const handleOnClick = () => {
         setInputActive(true);
     };
 
+    const toggleForm = () => {
+        setIsRegister(!isRegister);
+    };
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (inputRef.current && !inputRef.current.contains(event.target)) {
-                setInputActive(false); 
+                setInputActive(false);
             }
         };
 
@@ -27,39 +32,54 @@ const Login = () => {
             <div className="container">
                 <div className="login__box">
                     <div className="login__box-first">
-                        <h1 className="login__box-title">Qaytib Kelganingizdan Xursandmiz!</h1>
-                        <div className="login__box-icon">
-                            <a href="#"><img className="login__icon" src="4.svg" alt="" /></a>
-                            <a href="#"><img className="login__icon" src="5.svg" alt="" /></a>
-                            <a href="#"><img className="login__icon" src="6.svg" alt="" /></a>
-                        </div>
-                        <p className="login__text">Yoki Gmailingiz orqali Kiring</p>
-                        <form>
-                            <div className="group" ref={inputRef}>
-                                <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="text"
-                                    required
-                                />
-                                <span className="bar"></span>
-                                <label>Gmail</label>
-                            </div>
-
-                            <div className="group">
-                                <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="email" required />
-                                <span className="bar"></span>
-                                <label>Parol</label>
-                            </div>
-                        </form>
-                        <a href="" className="login__forgot">Parolingizni Unutdingizmi?</a>
-                        <div className='login__sign-box'>
-                            <a href="" className="login__sign">Kirish</a>
-                        </div>
+                        {isRegister ? (
+                            <>
+                                <h1 className="login__box-title">Ro'yxatdan O'tish</h1>
+                                <form>
+                                    <div className="group" ref={inputRef}>
+                                        <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="text" required />
+                                        <label>Ismingiz</label>
+                                    </div>
+                                    <div className="group">
+                                        <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="email" required />
+                                        <label>Gmail</label>
+                                    </div>
+                                    <div className="group">
+                                        <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="password" required />
+                                        <label>Parol</label>
+                                    </div>
+                                </form>
+                                <div className='login__sign-box'>
+                                    <button className="login__sign">Ro'yxatdan O'tish</button>
+                                </div>
+                                <p className="login__toggle-text">Akkauntingiz bormi? <span onClick={toggleForm}>Kirish</span></p>
+                            </>
+                        ) : (
+                            <>
+                                <h1 className="login__box-title">Qaytib Kelganingizdan Xursandmiz!</h1>
+                                <form>
+                                    <div className="group" ref={inputRef}>
+                                        <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="email" required />
+                                        <label>Gmail</label>
+                                    </div>
+                                    <div className="group">
+                                        <input className={`input__box ${inputActive ? "active" : ''}`} onClick={handleOnClick} type="password" required />
+                                        <label>Parol</label>
+                                    </div>
+                                </form>
+                                <a href="#" className="login__forgot">Parolingizni Unutdingizmi?</a>
+                                <div className='login__sign-box'>
+                                    <button className="login__sign">Kirish</button>
+                                </div>
+                                <p className="login__toggle-text">Akkauntingiz yo'qmi? <span onClick={toggleForm}>Ro'yxatdan O'tish</span></p>
+                            </>
+                        )}
                     </div>
                     <div className="login__box-sec">
-                        <a href="" className="login__logo-link"><img src="7.svg" alt="" /></a>
                         <h2 className="login__sec-title">Assalomu Aleykum</h2>
-                        <p className="login__sec-text">Akkauntingiz yo'qmi? Tez va oson ro'yxatdan o'ting!</p>
+                        <p className="login__sec-text">{isRegister ? "Kirish uchun hisobingizga kiring!" : "Tez va oson ro'yxatdan o'ting!"}</p>
                         <div className='login__sign-box'>
-                            <a href="" className="login__sex-link">Ro'yxatdan O'tish</a>
+                            <button className="login__sex-link" onClick={toggleForm}>{isRegister ? "Kirish" : "Ro'yxatdan O'tish"}</button>
                         </div>
                     </div>
                 </div>
