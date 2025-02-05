@@ -49,8 +49,19 @@ const Login = () => {
                                 <label>Parol</label>
                             </div>
                         </form>
+                        <a href="" className="login__forgot">Parolingizni Unutdingizmi?</a>
+                        <div className='login__sign-box'>
+                            <a href="" className="login__sign">Kirish</a>
+                        </div>
                     </div>
-                    <div className="login__box-sec"></div>
+                    <div className="login__box-sec">
+                        <a href="" className="login__logo-link"><img src="7.svg" alt="" /></a>
+                        <h2 className="login__sec-title">Assalomu Aleykum</h2>
+                        <p className="login__sec-text">Akkauntingiz yo'qmi? Tez va oson ro'yxatdan o'ting!</p>
+                        <div className='login__sign-box'>
+                            <a href="" className="login__sex-link">Ro'yxatdan O'tish</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
