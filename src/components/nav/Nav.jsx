@@ -58,7 +58,7 @@ const Nav = () => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
                 setLinkMenu(false);
-                setIsActive(false); // Tashqi joyga bosilganda active classni olib tashlash
+                setIsActive(false); 
             }
         };
 
@@ -82,7 +82,7 @@ const Nav = () => {
                         <div ref={navRef}>
                             <div className={`nav__search ${menuOpen ? 'open' : ''}`} onClick={handleToggleMenu}><IoSearch /></div>
                             <form className={`nav__form ${menuOpen ? 'active' : ''}`} action="">
-                                <input className="nav__search-input" type="text" placeholder="Qidirish..." />
+                                <input className="nav__search-input" type="text" placeholder={t('27')} />
                                 <a href="#" className="nav__form-search"><IoSearchSharp /></a>
                             </form>
                         </div>
