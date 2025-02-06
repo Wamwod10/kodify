@@ -93,13 +93,13 @@ const Login = () => {
                     <div className="login__box-first">
                         {isRegister ? (
                             <>
-                                <h1 className="login__box-title">Kirish Uchun Ro'yxatdan O'ting</h1>
+                                <h1 className="login__box-title">{t("25")}</h1>
                                 <div className="login__box-icon">
                                     <a href="#"><img className="login__icon" src="4.svg" alt="" /></a>
                                     <a href="#"><img className="login__icon" src="5.svg" alt="" /></a>
                                     <a href="#"><img className="login__icon" src="6.svg" alt="" /></a>
                                 </div>
-                                <p className="login__text">Iltimos Malumotlarni To'liq Kiriting!</p>
+                                <p className="login__text">{t('24')}</p>
                                 <form onSubmit={handleSubmit}>
                                     <div className="group" ref={inputRef}>
                                         <input
@@ -111,7 +111,7 @@ const Login = () => {
                                             onChange={handleChange}
                                             required
                                         />
-                                        <label>Ismingiz</label>
+                                        <label>{t('20')}</label>
                                     </div>
                                     <div className="group" ref={inputRef}>
                                         <input
@@ -125,7 +125,7 @@ const Login = () => {
                                             onInput={(e) => e.target.value = e.target.value.replace(/\D/g, '')}
                                             placeholder={inputActive.phone ? "998 99 123 45 67" : ""}
                                         />
-                                        <label>Telefon raqamingiz</label>
+                                        <label>{t('21')}</label>
                                     </div>
                                     <div className="group" ref={inputRef}>
                                         <input
@@ -149,13 +149,13 @@ const Login = () => {
                                             onChange={handleChange}
                                             required
                                         />
-                                        <label>Parol</label>
+                                        <label>{t('22')}</label>
                                     </div>
                                     <div className='login__sign-box'>
-                                        <button className="login__sign" type="submit">Ro'yxatdan O'tish</button>
+                                        <button className="login__sign" type="submit">{t('19')}</button>
                                     </div>
                                 </form>
-                                <p className="login__toggle-text login__text-top">Akkauntingiz bormi? <span onClick={toggleForm}>Kirish</span></p>
+                                <p className="login__toggle-text login__text-top">{t('23')} <span onClick={toggleForm}>{t('11')}</span></p>
                             </>
                         ) : (
                             <>
@@ -165,7 +165,7 @@ const Login = () => {
                                     <a href="#"><img className="login__icon" src="5.svg" alt="" /></a>
                                     <a href="#"><img className="login__icon" src="6.svg" alt="" /></a>
                                 </div>
-                                <p className="login__text">Yoki Gmailingiz orqali Kiring</p>
+                                <p className="login__text">{t('13')}</p>
                                 <form>
                                     <div className="group" ref={inputRef}>
                                         <input
@@ -189,23 +189,23 @@ const Login = () => {
                                             onChange={handleChange}
                                             required
                                         />
-                                        <label>Parol</label>
+                                        <label>{t('22')}</label>
                                     </div>
                                 </form>
-                                <a href="#" className="login__forgot">Parolingizni Unutdingizmi?</a>
+                                <a href="#" className="login__forgot">{t('14')}</a>
                                 <div className='login__sign-box'>
-                                    <a href='' className="login__sign">Kirish</a>
+                                    <a href='' className="login__sign">{t('11')}</a>
                                 </div>
-                                <p className="login__toggle-text">Akkauntingiz yo'qmi? <span onClick={toggleForm}>Ro'yxatdan O'tish</span></p>
+                                <p className="login__toggle-text">{t('15')} <span onClick={toggleForm}>{t('16')}</span></p>
                             </>
                         )}
                     </div>
                     <div className="login__box-sec">
                         <a href="" className="nav__logo-link"><img src="7.svg" alt="" /></a>
-                        <h2 className="login__sec-title">Assalomu Aleykum</h2>
-                        <p className="login__sec-text">{isRegister ? "Kirish uchun hisobingizga kiring!" : "Tez va oson ro'yxatdan o'ting!"}</p>
+                        <h2 className="login__sec-title">{t('17')}</h2>
+                        <p className="login__sec-text">{isRegister ? t('26') : t('18')}</p>
                         <div className='login__sign-box'>
-                            <button className="login__sec-link" onClick={toggleForm}>{isRegister ? "Kirish" : "Ro'yxatdan O'tish"}</button>
+                            <button className="login__sec-link" onClick={toggleForm}>{isRegister ? t('11') : t('16')}</button>
                         </div>
                     </div>
                 </div>
