@@ -3,7 +3,7 @@ import "./header.scss";
 
 const Header = () => {
   return (
-    <div>fg</div>
+    <div></div>
   )
 }
 
