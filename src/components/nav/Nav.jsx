@@ -121,7 +121,7 @@ const Nav = () => {
                     </div>
                     <div className={`nav__menu-box ${inmenuOpen ? "active" : ""}`}>
                         <form className="nav__menu-form" action="">
-                            <input className="nav__search-input" type="text" placeholder="Qidirish..." />
+                            <input className="nav__search-input" type="text" placeholder={t('27')} />
                             <a href="#" className="nav__form-search"><IoSearchSharp /></a>
                         </form>
                         <ul className="nav__menu-list">
