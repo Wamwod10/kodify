@@ -1,8 +1,16 @@
 import { useState } from "react";
 import "./header.scss";
 import { FaChevronRight } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
   const [openCategory, setOpenCategory] = useState(null);
 
   const toggleCategory = (category) => {
@@ -17,17 +25,17 @@ const Header = () => {
             <h2 className="header__first-title">Barcha Kurslar</h2>
             <ul className="header__list">
               {[
-                { title: "Dasturlash Darslari", subcategories: ["Frontend Dasturlash", "Backend Dasturlash", "Sun'iy Intellekt va Botlar", "Mobil Dasturlash"] },
-                { title: "Dizayn Darslari", subcategories: ["Adobe Photoshop", "Adobe Illustrator", "Figma"] },
-                { title: "3D Max", subcategories: ["3D MAX (To'liq darslik)", "Blender Asoslari", "Maya (Boshlang'ich kurs)", "ZBrush", "AutoCAD"] },
-                { title: "SMM", subcategories: ["Modul 1", "Modul 2", "Modul 3"] },
-                { title: "Video Montaj", subcategories: ["Adobe After Effects", "Adobe Premiere Pro"] },
-                { title: "Frilanserlik Darslari", subcategories: ["UpWorkda Ishlash"] },
-                { title: "Bugalteriya kurslari", subcategories: ["C1da Ishlash"] },
-                { title: "Kopirayting", subcategories: ["Kopirayting Kurslari"] },
-                { title: "Office darslari", subcategories: ["Microsoft Word"] },
-                { title: "AI", subcategories: ["AIlardan Foydalanish"] },
-                { title: "CMS va Boshqa Yo‘nalishlar", subcategories: ["WordPress"] },
+                { title: t("28"), subcategories: [t("29"), t("30"), t("31"), t("32")] },
+                { title: t("33"), subcategories: [t("34"), t("35"), t("36")] },
+                { title: t("37"), subcategories: [t("38"), t("39"), t("40"), t("41"), t("42")] },
+                { title: t("43"), subcategories: [t("44"), t("45"), t("46")] },
+                { title: t("47"), subcategories: [t("48"), t("49")] },
+                { title: t("50"), subcategories: [t("51")] },
+                { title: t("52"), subcategories: [t("53")] },
+                { title: t("54"), subcategories: [t("55")] },
+                { title: t("56"), subcategories: [t("57")] },
+                { title: t("58"), subcategories: [t("59")] },
+                { title: t("60"), subcategories: [t("61")] },
               ].map((category, index) => (
                 <li key={index} className="header__item">
                   <a href="#" onClick={(e) => { e.preventDefault(); toggleCategory(index); }} className="header__link">
