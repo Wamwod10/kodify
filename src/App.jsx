@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Header />} />
+          
         </Route>
         <Route path="login" element={
           <>
